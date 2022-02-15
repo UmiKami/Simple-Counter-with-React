@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(11, 8, 48);
+}
+
+.fa-clock{
+    font-size: 7rem;
+    color: white;
+}
+
+.timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+.field{
+    color: white;
+    padding: 2rem;
+    font-size: 10rem;
+}

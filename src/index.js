@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import Timer from './components/timer'
+
+let counter = 0
 
 const MainPage = () => {
   return <>
-    <Timer/>
+    <Timer timeElapsed={counter}/>
   </>
 }
 
+setInterval(()=>{
+  counter++
+  ReactDOM.render(<MainPage/>,document.getElementById('root'));
+},1000)
 
-ReactDOM.render(<MainPage/>,document.getElementById('root'));
+
+

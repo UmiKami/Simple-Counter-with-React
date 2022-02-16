@@ -79,7 +79,7 @@ const Timer = () => {
 				</button>
 				<div className="alert">
 					<input type="number" className="timeInpt alert-inpt" onChange={getAlertValue}/>
-					<button className="btn alert-btn" type="button" onClick={()=>{reminder = "Reminder! It's already been " + state.alert + " seconds!"; isReminderSet=true}}>
+					<button className="btn alert-btn" type="button" onClick={()=>{reminder = "Reminder! You've reached the " + state.alert + " seconds mark!"; isReminderSet=true}}>
 						<i className="fa-solid fa-bell" />
 					</button>
 				</div>

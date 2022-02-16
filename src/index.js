@@ -12,6 +12,3 @@ const MainPage = () => {
 setInterval(()=>{
   ReactDOM.render(<MainPage/>,document.getElementById('root'));
 },1000)
-
-
-

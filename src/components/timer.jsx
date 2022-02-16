@@ -1,6 +1,7 @@
 import '../styles/Timer.css';
 
 let isGoingUp = true;
+let isRunning = true
 let counter = 0;
 
 let state = {
@@ -25,7 +26,7 @@ let timeDivisor = (timeElap) => {
 };
 
 const Timer = () => {
-	isGoingUp ? counter++ : counter--;
+	isRunning ? isGoingUp ? counter++ : counter-- : counter = counter
 	let timePassed = timeDivisor(counter);
 
 	return (
@@ -53,6 +54,15 @@ const Timer = () => {
 				</button>
 				<button className="btn" type="button" onClick={() => (isGoingUp = false)}>
 					▼
+				</button>
+				<button className="btn stop-btn" type='button' onClick={() => (isRunning = false)}>
+					<i className="fa-regular fa-circle-stop"></i>
+				</button>
+				<button className="btn resume-btn" type='button' onClick={() => (isRunning = true)}>
+					<i className="fa-regular fa-circle-play"></i>
+				</button>
+				<button className="btn reset-btn" type='button' onClick={()=> counter=0}>
+					<i className="fa-solid fa-arrow-rotate-left"></i>
 				</button>
 			</section>
 		</div>

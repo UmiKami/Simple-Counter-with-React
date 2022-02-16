@@ -27,6 +27,7 @@ let timeDivisor = (timeElap) => {
 
 const Timer = () => {
 	isRunning ? isGoingUp ? counter++ : counter-- : counter = counter
+	counter < 0 ? counter = 0 : isRunning = true
 	let timePassed = timeDivisor(counter);
 
 	return (

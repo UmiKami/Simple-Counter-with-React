@@ -1,16 +1,24 @@
 import '../styles/Timer.css';
 
+let none = false
 let isGoingUp = true;
-let isRunning = true
+let isRunning = true;
+let isReminderSet = false;
 let counter = 0;
+let reminder = "";
 
 let state = {
-	value: ''
+	value: '',
+	alert: ''
 };
 
 let getValue = (val) => {
 	state.value = val.target.value;
 };
+
+let getAlertValue = (val1) => {
+	state.alert = val1.target.value
+}
 
 const setTime = () => {
 	counter = state.value;
@@ -26,8 +34,12 @@ let timeDivisor = (timeElap) => {
 };
 
 const Timer = () => {
-	isRunning ? isGoingUp ? counter++ : counter-- : counter = counter
-	counter < 0 ? counter = 0 : isRunning = true
+	let holder = counter;
+	
+	isRunning ? (isGoingUp ? counter++ : counter--) : (counter = holder);
+	counter < 0 ? (counter = 0) : isRunning === false ? isRunning = false : isRunning  = true;
+	(String(counter) === String(state.alert)) && isReminderSet ? alert(reminder) : none = true
+
 	let timePassed = timeDivisor(counter);
 
 	return (
@@ -56,15 +68,21 @@ const Timer = () => {
 				<button className="btn" type="button" onClick={() => (isGoingUp = false)}>
 					▼
 				</button>
-				<button className="btn stop-btn" type='button' onClick={() => (isRunning = false)}>
-					<i className="fa-regular fa-circle-stop"></i>
+				<button className="btn stop-btn" type="button" onClick={() => (isRunning = false)}>
+					<i className="fa-regular fa-circle-stop" />
 				</button>
-				<button className="btn resume-btn" type='button' onClick={() => (isRunning = true)}>
-					<i className="fa-regular fa-circle-play"></i>
+				<button className="btn resume-btn" type="button" onClick={() => (isRunning = true)}>
+					<i className="fa-regular fa-circle-play" />
 				</button>
-				<button className="btn reset-btn" type='button' onClick={()=> counter=0}>
-					<i className="fa-solid fa-arrow-rotate-left"></i>
+				<button className="btn reset-btn" type="button" onClick={() => (counter = 0)}>
+					<i className="fa-solid fa-arrow-rotate-left" />
 				</button>
+				<div className="alert">
+					<input type="number" className="timeInpt alert-inpt" onChange={getAlertValue}/>
+					<button className="btn alert-btn" type="button" onClick={()=>{reminder = "Reminder! It's already been " + state.alert + " seconds!"; isReminderSet=true}}>
+						<i className="fa-solid fa-bell" />
+					</button>
+				</div>
 			</section>
 		</div>
 	);

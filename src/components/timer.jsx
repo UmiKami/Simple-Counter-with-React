@@ -45,7 +45,7 @@ const Timer = () => {
 	return (
 		<div className="timer-container">
 			<section className="timer">
-				<i className="fa-regular fa-clock" />
+				<i className="fa-regular fa-spin fa-clock" />
 				<div className="counter">
 					{/* Left to right */}
 					<span className="firstField field">{timePassed[timePassed.length - 6] || 0}</span>
@@ -58,7 +58,7 @@ const Timer = () => {
 			</section>
 
 			<section className="counter-input">
-				<input type="number" className="timeInpt" onChange={getValue} autoFocus />
+				<input type="number" className="timeInpt" onChange={getValue} autoFocus/>
 				<button className="btn" type="button" onClick={setTime}>
 					Change Time
 				</button>
@@ -74,7 +74,7 @@ const Timer = () => {
 				<button className="btn resume-btn" type="button" onClick={() => (isRunning = true)}>
 					<i className="fa-regular fa-circle-play" />
 				</button>
-				<button className="btn reset-btn" type="button" onClick={() => (counter = 0)}>
+				<button className="btn reset-btn" type="button" onClick={() => {counter = 0; state.alert=''}}>
 					<i className="fa-solid fa-arrow-rotate-left" />
 				</button>
 				<div className="alert">
